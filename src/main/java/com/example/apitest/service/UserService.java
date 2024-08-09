@@ -28,11 +28,11 @@ public class UserService {
         user.setSurName(user.getSurName());
         user.setEmail(user.getEmail());
         if (user.getPhones().size() < 1 || user.getPhones().size() > 3) {
-            throw new IllegalArgumentException("Количество номеров телефонов должно быть от 1 до 3");
+            throw new IllegalArgumentException("Количество номеров телефонов должно быть от 1 до 3. Повторите еще раз");
         }
         user.setPhones(user.getPhones());
         if (user.getRoles().size() < 1 || user.getRoles().size() > 3) {
-            throw new IllegalArgumentException("Количество ролей должно быть от 1 до 3");
+            throw new IllegalArgumentException("Количество ролей должно быть от 1 до 3. Повторите еще раз");
         }
         user.setRoles(user.getRoles());
         userRepository.save(user);

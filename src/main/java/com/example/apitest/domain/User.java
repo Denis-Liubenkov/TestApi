@@ -33,5 +33,6 @@ public class User {
     private List<String> roles;
 
     @ElementCollection
+    @Pattern("^375\\d{9}$")
     private List<String> phones;
 }
