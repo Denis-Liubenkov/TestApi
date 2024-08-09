@@ -1,16 +1,18 @@
 package com.example.apitest.domain;
 
+import com.example.apitest.ValidMobileNumberList;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Component
 @Data
 @Entity(name = "users")
+@Validated
 public class User {
     @Id
     @SequenceGenerator(name = "user_seq", sequenceName = "user_id_seq", allocationSize = 1)
@@ -33,6 +35,6 @@ public class User {
     private List<String> roles;
 
     @ElementCollection
-    @Pattern("^375\\d{9}$")
+    @ValidMobileNumberList
     private List<String> phones;
 }

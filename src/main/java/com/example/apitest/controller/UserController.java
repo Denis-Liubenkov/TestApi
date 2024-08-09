@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-private static final Logger log = LoggerFactory.getLogger(UserController.class);
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -38,21 +38,21 @@ private static final Logger log = LoggerFactory.getLogger(UserController.class);
     @GetMapping("/{id}")
     public ResponseEntity<User> getInfoUser(@PathVariable Integer id) {
         User user = userService.getUser(id).orElseThrow(UserNotFoundException::new);
-        log.info("Users with id : " + id + "is found");
+        log.info("UserInfo :" + "\n" + user.toString());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PostMapping("/create")
     public ResponseEntity<HttpStatus> createUser(@Valid @RequestBody User user) {
         userService.createUser(user);
-        log.info("User with surName : " + user.getSurName() + "is created");
+        log.info("User with surName : " + user.getSurName() + " is created");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
     public ResponseEntity<HttpStatus> updateUser(@Valid @RequestBody User user) {
         userService.updateUser(user);
-        log.info("User with id : " + user.getId() + "is updated");
+        log.info("User with id : " + user.getId() + " is updated");
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
