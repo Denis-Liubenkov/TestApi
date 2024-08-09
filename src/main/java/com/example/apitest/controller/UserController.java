@@ -1,6 +1,7 @@
 package com.example.apitest.controller;
 
 import com.example.apitest.domain.User;
+import com.example.apitest.exceptions.UserNotFoundException;
 import com.example.apitest.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class UserController {
         if (users.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            return new ResponseEntity<>(users, HttpStatus.OK)
+            return new ResponseEntity<>(users, HttpStatus.OK);
         }
     }
 
