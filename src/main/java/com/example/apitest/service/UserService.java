@@ -1,6 +1,7 @@
 package com.example.apitest.service;
 
 import com.example.apitest.domain.User;
+import com.example.apitest.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
